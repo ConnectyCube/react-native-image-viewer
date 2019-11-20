@@ -119,10 +119,6 @@ export class Props {
     //
   };
 
-  public onPressIn?: () => void = () => {
-    return true
-  };
-
   public onPressOut?: () => void = () => {
     return false
   };
