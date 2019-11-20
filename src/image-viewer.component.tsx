@@ -397,6 +397,18 @@ export default class ImageViewer extends React.Component<Props, State> {
     }
   };
 
+  public handleOnPressIn = () => {
+    if (this.props.onPressIn) {
+      this.props.onPressIn();
+    }
+  };
+
+  public handleOnPressOut = () => {
+    if (this.props.onPressIn) {
+      this.props.onPressOut();
+    }
+  };
+
   /**
    * 退出
    */
@@ -474,6 +486,8 @@ export default class ImageViewer extends React.Component<Props, State> {
           onLongPress={this.handleLongPressWithIndex.get(index)}
           onClick={this.handleClick}
           onDoubleClick={this.handleDoubleClick}
+          onPressIn={this.handleOnPressIn}
+          onPressOut={this.handleOnPressOut}
           enableSwipeDown={this.props.enableSwipeDown}
           swipeDownThreshold={this.props.swipeDownThreshold}
           onSwipeDown={this.handleSwipeDown}
@@ -543,6 +557,8 @@ export default class ImageViewer extends React.Component<Props, State> {
               onLongPress={this.handleLongPressWithIndex.get(index)}
               onClick={this.handleClick}
               onDoubleClick={this.handleDoubleClick}
+              onPressIn={this.handleOnPressIn}
+              onPressOut={this.handleOnPressOut}
               imageWidth={width}
               imageHeight={height}
               enableSwipeDown={this.props.enableSwipeDown}
