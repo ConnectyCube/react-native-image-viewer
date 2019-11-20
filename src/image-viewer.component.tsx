@@ -404,7 +404,7 @@ export default class ImageViewer extends React.Component<Props, State> {
   };
 
   public handleOnPressOut = () => {
-    if (this.props.onPressIn) {
+    if (this.props.onPressOut) {
       this.props.onPressOut();
     }
   };
