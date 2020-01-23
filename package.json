@@ -18,7 +18,7 @@
   "author": "ascoders",
   "license": "MIT",
   "dependencies": {
-    "react-native-image-pan-zoom": "github:ConnectyCube/react-native-image-zoom#dev"
+    "react-native-image-pan-zoom": "github:ConnectyCube/react-native-image-zoom"
   },
   "peerDependencies": {
     "react": "*",
@@ -30,8 +30,8 @@
     "ascoders-tslint-config": "^1.0.2",
     "react": "*",
     "react-native": "*",
-    "tslint": "^5.8.0",
-    "tslint-config-prettier": "^1.13.0",
-    "typescript": "^2.9.2"
+    "tslint": "^6.0.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.7.5"
   }
 }
