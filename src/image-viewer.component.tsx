@@ -369,14 +369,14 @@ export default class ImageViewer extends React.Component<Props, State> {
    * 长按
    */
   public handleLongPress = (image: IImageInfo) => {
-    if (this.props.saveToLocalByLongPress) {
-      // 出现保存到本地的操作框
-      this.setState({ isShowMenu: true });
-    }
+    // if (this.props.saveToLocalByLongPress) {
+    //   // 出现保存到本地的操作框
+    //   this.setState({ isShowMenu: true });
+    // }
 
-    if (this.props.onLongPress) {
-      this.props.onLongPress(image);
-    }
+    // if (this.props.onLongPress) {
+    //   this.props.onLongPress(image);
+    // }
   };
 
   /**
@@ -477,7 +477,7 @@ export default class ImageViewer extends React.Component<Props, State> {
           horizontalOuterRangeOffset={this.handleHorizontalOuterRangeOffset}
           responderRelease={this.handleResponderRelease}
           onMove={this.props.onMove}
-          onLongPress={this.handleLongPressWithIndex.get(index)}
+          // onLongPress={this.handleLongPressWithIndex.get(index)}
           onClick={this.handleClick}
           onDoubleClick={this.handleDoubleClick}
           onPressOut={this.handleOnPressOut}
@@ -547,7 +547,7 @@ export default class ImageViewer extends React.Component<Props, State> {
               horizontalOuterRangeOffset={this.handleHorizontalOuterRangeOffset}
               responderRelease={this.handleResponderRelease}
               onMove={this.props.onMove}
-              onLongPress={this.handleLongPressWithIndex.get(index)}
+              // onLongPress={this.handleLongPressWithIndex.get(index)}
               onClick={this.handleClick}
               onDoubleClick={this.handleDoubleClick}
               onPressOut={this.handleOnPressOut}
@@ -638,47 +638,19 @@ export default class ImageViewer extends React.Component<Props, State> {
    * 保存当前图片到本地相册
    */
   public saveToLocal = () => {
-    if (!this.props.onSave) {
-      CameraRoll.saveToCameraRoll(this.props.imageUrls[this.state.currentShowIndex || 0].url);
-      this!.props!.onSaveToCamera!(this.state.currentShowIndex);
-    } else {
-      this.props.onSave(this.props.imageUrls[this.state.currentShowIndex || 0].url);
-    }
+    // if (!this.props.onSave) {
+    //   CameraRoll.saveToCameraRoll(this.props.imageUrls[this.state.currentShowIndex || 0].url);
+    //   this!.props!.onSaveToCamera!(this.state.currentShowIndex);
+    // } else {
+    //   this.props.onSave(this.props.imageUrls[this.state.currentShowIndex || 0].url);
+    // }
 
     this.setState({ isShowMenu: false });
   };
 
   public getMenu() {
-    if (!this.state.isShowMenu) {
-      return null;
-    }
-
-    if (this.props.menus) {
-      return (
-        <View style={this.styles.menuContainer}>
-          {this.props.menus({ cancel: this.handleLeaveMenu, saveToLocal: this.saveToLocal })}
-        </View>
-      );
-    }
-
-    return (
-      <View style={this.styles.menuContainer}>
-        <View style={this.styles.menuShadow} />
-        <View style={this.styles.menuContent}>
-          <TouchableHighlight underlayColor="#F2F2F2" onPress={this.saveToLocal} style={this.styles.operateContainer}>
-            <Text style={this.styles.operateText}>{this.props.menuContext.saveToLocal}</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            underlayColor="#F2F2F2"
-            onPress={this.handleLeaveMenu}
-            style={this.styles.operateContainer}
-          >
-            <Text style={this.styles.operateText}>{this.props.menuContext.cancel}</Text>
-          </TouchableHighlight>
-        </View>
-      </View>
-    );
-  }
+    return null;
+  };
 
   public handleLeaveMenu = () => {
     this.setState({ isShowMenu: false });
